@@ -1,0 +1,22 @@
+[
+  {"id":"new-more","text":"Создать новый файл","shortcut":"Ctrl N"},
+  {"id":"open-more","text":"Открыть файлы…","shortcut":"Ctrl O"},
+  {"id":"save","text":"Сохранить","shortcut":"Ctrl S","document":true},
+  {"id":"save-as","text":"Сохранить как…","shortcut":"Ctrl ⇧ S","document":true},
+  {"id":"reload","text":"Обновить файл","shortcut":"Ctrl R","document":true},
+  {"id":"pdf","text":"Сохранить PDF…","shortcut":"Ctrl P","document":true},
+  {"kind":"separator"},
+  {"kind":"label","text":"Просмотр"},
+  {"id":"view-read","text":"Чтение","document":true,"pressed":true},
+  {"id":"view-split","text":"Редактирование с предпросмотром","shortcut":"Ctrl E","document":true,"pressed":false},
+  {"id":"view-source","text":"Только исходник","document":true,"pressed":false},
+  {"kind":"separator"},
+  {"kind":"encoding","id":"encoding","text":"Кодировка","label":"Кодировка файла","options":[{"value":"auto","text":"Авто"},{"value":"utf-8","text":"UTF-8"},{"value":"windows-1251","text":"Windows-1251"},{"value":"utf-16le","text":"UTF-16 LE"},{"value":"utf-16be","text":"UTF-16 BE"}]},
+  {"kind":"file-info"},
+  {"kind":"separator"},
+  {"id":"theme","text":"Тёмная тема","pressed":false},
+  {"kind":"language","id":"language","text":"Язык / Language","label":"Язык интерфейса","options":[{"id":"language-system","value":"system","text":"Как в системе"},{"value":"ru","text":"Русский"},{"value":"en","text":"English"}]},
+  {"kind":"separator"},
+  {"id":"default-apps","text":"Приложение по умолчанию…"},
+  {"id":"help","text":"Справка","shortcut":"F1"}
+]

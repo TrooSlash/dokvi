@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: http: md-asset:; font-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Dokvi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chrome.css">
+</head>
+<body>
+  <svg class="icons" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M3 8V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v2M3 20h16l3-10H6L3 20Zm0 0V8"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-theme" viewBox="0 0 24 24"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M13 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9l-6-6Zm0 0v6h6M8 13h8M8 17h6"/></symbol>
+    <symbol id="i-export" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 15v5h16v-5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M19 11a7 7 0 0 0-12-6L4 8m1 5a7 7 0 0 0 12 6l3-3"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .6-1.5 1-1.5 2M12 16h.01"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 10 6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></symbol>
+    <!-- Dokvi Contour: approved revision 01, shared by the toolbar and menus. -->
+    <symbol id="fmt-bold" stroke="none" viewBox="0 0 24 24"><path d="M7 4.5h5.5c2.8 0 4.5 1.4 4.5 3.7S15.3 12 12.5 12H7m5.5 0c3.3 0 5 1.4 5 3.8s-1.7 3.7-5 3.7H7v-15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-italic" stroke="none" viewBox="0 0 24 24"><path d="M11 5h7M6 19h7M14.5 5l-5 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-strike" stroke="none" viewBox="0 0 24 24"><path d="M17 6.8c-.9-1.5-2.6-2.3-4.9-2.3-3.1 0-5.1 1.5-5.1 3.6 0 1.2.7 2.1 2 2.8M14.8 13.2c1.4.7 2.2 1.6 2.2 2.8 0 2.1-2 3.5-5 3.5-2.3 0-4.1-.8-5-2.3M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-link" stroke="none" viewBox="0 0 24 24"><path d="M10 7.5 12.5 5a4.6 4.6 0 0 1 6.5 6.5L16.5 14M14 16.5 11.5 19A4.6 4.6 0 0 1 5 12.5L7.5 10M9 15l6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-bullet" stroke="none" viewBox="0 0 24 24"><circle cx="4" cy="6" r="1.25" fill="currentColor"/><circle cx="4" cy="12" r="1.25" fill="currentColor"/><circle cx="4" cy="18" r="1.25" fill="currentColor"/><path d="M9 6h11M9 12h11M9 18h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-ordered" stroke="none" viewBox="0 0 24 24"><g transform="translate(2.5 3) scale(0.8)"><path d="M.7 1.5 2.5 0V8M.5 8h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(2.5 14) scale(0.8)"><path d="M0 2C0 .8 1 0 2.5 0S5 .8 5 2C5 3.2 4 4 2.5 5.3L0 8h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M11 6.5h10M11 17.5h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-task" stroke="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.25" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.25" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4.8 6.5 1.3 1.3 2.3-2.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6.5h7M14 17.5h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-quote" stroke="none" viewBox="0 0 24 24"><path d="M4 5.5h6v6c0 3.2-1.7 5.4-4.5 7M4 5.5v6h6M14 5.5h6v6c0 3.2-1.7 5.4-4.5 7M14 5.5v6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-code" stroke="none" viewBox="0 0 24 24"><path d="M8 6.5 2.5 12 8 17.5M16 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-codeblock" stroke="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 9l-2.5 3 2.5 3M15 9l2.5 3-2.5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-highlight" stroke="none" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><path d="M8 3h8v10l-2 2h-4l-2-2ZM10 15v3h4v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M3 21h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-image" stroke="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="9" r="1.35" fill="currentColor"/><path d="m3 16 4-4 6 6 4-4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-table" stroke="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9.5h18M3 15h18M9 4v16M15 4v16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-rule" stroke="none" viewBox="0 0 24 24"><path d="M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-h0" stroke="none" viewBox="0 0 24 24"><path d="M4 5h16M12 5v14M8.5 19h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-h1" stroke="none" viewBox="0 0 24 24"><path d="M3.5 5v14M12 5v14M3.5 12H12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(16 11.5) scale(1)"><path d="M.7 1.5 2.5 0V8M.5 8h4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="fmt-h2" stroke="none" viewBox="0 0 24 24"><path d="M3.5 5v14M12 5v14M3.5 12H12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(16 11.5) scale(1)"><path d="M0 2C0 .8 1 0 2.5 0S5 .8 5 2C5 3.2 4 4 2.5 5.3L0 8h5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="fmt-h3" stroke="none" viewBox="0 0 24 24"><path d="M3.5 5v14M12 5v14M3.5 12H12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(16 11.5) scale(1)"><path d="M.2 1C.9 .3 1.6 0 2.5 0 4.1 0 5 .8 5 2c0 1.2-1 2-2.5 2C4.1 4 5 4.8 5 6s-.9 2-2.5 2C1.5 8 .6 7.6 0 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="fmt-h4" stroke="none" viewBox="0 0 24 24"><path d="M3.5 5v14M12 5v14M3.5 12H12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(16 11.5) scale(1)"><path d="M4 8V0L0 5.5h5.2" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="fmt-h5" stroke="none" viewBox="0 0 24 24"><path d="M3.5 5v14M12 5v14M3.5 12H12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(16 11.5) scale(1)"><path d="M5 0H.4v3.5h2C4 3.5 5 4.3 5 5.7 5 7.2 4 8 2.5 8 1.5 8 .6 7.7 0 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="fmt-h6" stroke="none" viewBox="0 0 24 24"><path d="M3.5 5v14M12 5v14M3.5 12H12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(16 11.5) scale(1)"><path d="M4.6 .7C4 .2 3.4 0 2.7 0 1 0 0 2.3 0 5.4 0 7.1 .9 8 2.5 8 4 8 5 7 5 5.4 5 4 4 3.2 2.5 3.2S0 4.1 0 5.4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+    <symbol id="fmt-heading" stroke="none" viewBox="0 0 24 24"><path d="M5.5 5v14M18.5 5v14M5.5 12h13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-chevron" stroke="none" viewBox="0 0 24 24"><path d="m6.5 9 5.5 5.5L17.5 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="fmt-more" stroke="none" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="12" r="1.5" fill="currentColor"/></symbol>
+  </defs></svg>
+  <header class="tabbar">
+    <span class="app-icon" title="Dokvi"><img src="icon.svg" width="18" height="18" alt="Dokvi" draggable="false"><img class="app-icon-dark" src="icon-dark.svg" width="18" height="18" alt="Dokvi" draggable="false"></span>
+    <div id="tab-strip" hidden>
+      <button id="tabs-prev" class="tab-scroll-control" title="Прокрутить вкладки влево" aria-label="Прокрутить вкладки влево"><svg><use href="#i-left"/></svg></button>
+      <div id="tablist" role="tablist" aria-label="Открытые документы"></div>
+      <button id="tabs-next" class="tab-scroll-control" title="Прокрутить вкладки вправо" aria-label="Прокрутить вкладки вправо"><svg><use href="#i-right"/></svg></button>
+      <button id="tabs-menu-toggle" class="tab-scroll-control" title="Все открытые вкладки" aria-label="Все открытые вкладки" aria-expanded="false" aria-controls="tabs-menu"><svg><use href="#i-down"/></svg></button>
+    </div>
+    <button id="open" class="new-tab" title="Открыть файлы (Ctrl+O)" aria-label="Открыть файлы"><span class="chrome-icon" data-chrome-icon="plus" aria-hidden="true"></span></button>
+    <button id="new" class="new-document" title="Создать новый файл (Ctrl+N)" aria-label="Создать новый файл"><span class="chrome-label">Создать</span></button>
+    <div class="window-drag"></div>
+  </header>
+  <div id="tabs-menu" class="reader-popover" role="dialog" aria-label="Открытые вкладки" hidden>
+    <div class="tabs-menu-header"><span id="tabs-count" class="popover-label"></span><input id="tabs-filter" type="search" placeholder="Найти вкладку" aria-label="Найти вкладку" autocomplete="off"></div>
+    <div id="tabs-menu-list"></div>
+  </div>
+  <div class="reader-toolbar">
+    <div class="toolbar-location">
+    <button id="outline-toggle" title="Оглавление (Ctrl+B)" aria-expanded="false" aria-controls="sidebar"><span class="chrome-icon" data-chrome-icon="panel" aria-hidden="true"></span><span class="chrome-label">Разделы</span></button>
+    <div class="file-location"><span id="filename"></span><span id="file-path"></span></div>
+    </div>
+    <div id="format-toolbar" class="format-toolbar" role="group" aria-label="Форматирование Markdown" hidden>
+      <details class="format-menu"><summary title="Заголовок" aria-label="Заголовок"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-heading"/></svg><svg class="format-icon chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-chevron"/></svg></summary><div class="format-options" role="group" aria-label="Уровень заголовка">
+        <button type="button" data-format="h0"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h0"/></svg><span>Обычный текст</span></button><button type="button" data-format="h1"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h1"/></svg><span>Заголовок 1</span></button><button type="button" data-format="h2"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h2"/></svg><span>Заголовок 2</span></button><button type="button" data-format="h3"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h3"/></svg><span>Заголовок 3</span></button><button type="button" data-format="h4"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h4"/></svg><span>Заголовок 4</span></button><button type="button" data-format="h5"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h5"/></svg><span>Заголовок 5</span></button><button type="button" data-format="h6"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-h6"/></svg><span>Заголовок 6</span></button>
+      </div></details>
+      <details class="format-menu"><summary title="Список" aria-label="Список"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-bullet"/></svg><svg class="format-icon chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-chevron"/></svg></summary><div class="format-options" role="group" aria-label="Вид списка">
+        <button type="button" data-format="bullet"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-bullet"/></svg><span>Маркированный список</span></button><button type="button" data-format="ordered"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-ordered"/></svg><span>Нумерованный список</span></button><button type="button" data-format="task"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-task"/></svg><span>Список задач</span></button>
+      </div></details>
+      <span class="format-divider" aria-hidden="true"></span>
+      <button type="button" data-format="bold" title="Жирный" aria-label="Жирный"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-bold"/></svg></button>
+      <button type="button" data-format="italic" title="Курсив" aria-label="Курсив"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-italic"/></svg></button>
+      <button type="button" data-format="strike" title="Зачёркнутый" aria-label="Зачёркнутый"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-strike"/></svg></button>
+      <button type="button" data-format="link" title="Вставить ссылку" aria-label="Вставить ссылку"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-link"/></svg></button>
+      <details class="format-menu"><summary title="Другие форматы" aria-label="Другие форматы"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-more"/></svg></summary><div class="format-options" role="group" aria-label="Другие форматы">
+        <button type="button" data-format="quote"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-quote"/></svg><span>Цитата</span></button><button type="button" data-format="code"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-code"/></svg><span>Код в строке</span></button><button type="button" data-format="codeblock"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-codeblock"/></svg><span>Блок кода</span></button><button type="button" data-format="highlight"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-highlight"/></svg><span>Выделить маркером</span></button><button type="button" data-format="image"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-image"/></svg><span>Изображение</span></button><button type="button" data-format="table"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-table"/></svg><span>Таблица</span></button><button type="button" data-format="rule"><svg class="format-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#fmt-rule"/></svg><span>Разделитель</span></button>
+      </div></details>
+    </div>
+    <div class="toolbar-actions">
+    <button id="search-toggle" class="icon-button" title="Найти в документе (Ctrl+F)" aria-label="Поиск"><svg><use href="#i-search"/></svg></button>
+    <button id="source-toggle" class="icon-button" title="Редактирование с предпросмотром (Ctrl+E)" aria-label="Редактирование с предпросмотром" aria-pressed="false"><svg><use href="#i-code"/></svg></button>
+    <button id="appearance" title="Оформление текста" aria-label="Оформление" aria-expanded="false" aria-controls="appearance-menu"><span class="chrome-label">Aa</span></button>
+    <button id="more" class="icon-button" title="Другие действия" aria-label="Другие действия" aria-expanded="false" aria-controls="more-menu"><span class="chrome-icon" data-chrome-icon="more" aria-hidden="true"></span></button>
+    </div>
+  </div>
+  <div id="appearance-menu" class="reader-popover appearance-popover" hidden>
+    <span class="popover-label">Размер текста</span><div class="font-controls"><button id="font-down" title="Уменьшить текст" aria-label="Уменьшить текст">A−</button><span id="font-size">16</span><button id="font-up" title="Увеличить текст" aria-label="Увеличить текст">A+</button></div>
+    <hr><fieldset class="reading-controls"><legend>Область чтения</legend>
+      <div class="reading-layout"><button id="reading-left" aria-pressed="true">Слева</button><button id="reading-center" aria-pressed="false">По центру</button><button id="reading-full" aria-pressed="false">Всё окно</button></div>
+      <label class="reading-width-label" for="reading-width"><span>Ширина</span><output id="reading-width-value">80%</output></label>
+      <input id="reading-width" type="range" min="50" max="100" step="5" value="80" aria-label="Ширина области чтения">
+    </fieldset>
+  </div>
+  <div id="more-menu" class="reader-popover actions-popover" hidden>
+    <!-- MORE_MENU -->
+  </div>
+  <div id="searchbar" class="searchbar" hidden>
+    <svg><use href="#i-search"/></svg><input id="search-input" type="search" placeholder="Найти в документе…" aria-label="Текст для поиска" autocomplete="off">
+    <span id="search-count" aria-live="polite">0 из 0</span>
+    <button id="search-prev" class="icon-button" aria-label="Предыдущее совпадение" title="Предыдущее (Shift+Enter)"><svg><use href="#i-up"/></svg></button>
+    <button id="search-next" class="icon-button" aria-label="Следующее совпадение" title="Следующее (Enter)"><svg><use href="#i-down"/></svg></button>
+    <button id="search-close" class="icon-button" aria-label="Закрыть поиск"><svg><use href="#i-close"/></svg></button>
+  </div>
+  <div class="workspace hide-outline" id="workspace" data-view="read" hidden>
+    <aside id="sidebar"><div class="sidebar-label">Разделы <span id="heading-count"></span></div><nav id="outline" aria-label="Разделы документа"></nav></aside>
+    <main id="main">
+      <section id="source-pane" aria-label="Редактор Markdown">
+        <div class="source-toolbar"><span id="edit-state">MARKDOWN</span><button id="source-save" title="Сохранить (Ctrl+S)">Сохранить</button></div>
+        <div id="editors"></div>
+      </section>
+      <div id="split-resizer" role="separator" tabindex="0" aria-label="Ширина редактора" aria-orientation="vertical" aria-controls="source-pane reading-pane" aria-valuemin="30" aria-valuemax="70" aria-valuenow="42" title="Перетащите границу. Стрелки ← → меняют ширину, двойной щелчок возвращает 42 / 58."></div>
+      <div id="preview-pane"><div class="preview-label">ПРЕДПРОСМОТР</div><section id="reading-pane" tabindex="0" aria-label="Документ"><article id="document" class="markdown"></article></section></div>
+    </main>
+  </div>
+  <section id="empty-state"><div id="empty-content"><h1 id="empty-title">Откройте или создайте файл</h1><p id="empty-hint">Перетащите файлы сюда или выберите их на компьютере.</p><div class="empty-actions"><button id="empty-new">Создать новый файл <kbd>Ctrl N</kbd></button><button id="empty-open">Открыть файлы… <kbd>Ctrl O</kbd></button></div><button id="empty-sample">Посмотреть пример</button></div></section>
+  <div id="drop-overlay" hidden><div><svg><use href="#i-open"/></svg><h2>Отпустите файл здесь</h2><p>.md · .markdown · .mdown · .mkd · .txt</p></div></div>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="help-dialog" aria-labelledby="help-title"><div class="dialog-header"><div><div class="help-brand">Dokvi</div><h2 id="help-title">Справка</h2></div><button id="help-close" class="icon-button" aria-label="Закрыть справку" title="Закрыть (Esc)"><svg><use href="#i-close"/></svg></button></div>
+    <div id="help-tabs" role="tablist" aria-label="Разделы справки">
+      <button id="help-tab-files" role="tab" aria-selected="true" aria-controls="help-files" tabindex="0">Файлы</button>
+      <button id="help-tab-editor" role="tab" aria-selected="false" aria-controls="help-editor" tabindex="-1">Редактор</button>
+      <button id="help-tab-shortcuts" role="tab" aria-selected="false" aria-controls="help-shortcuts" tabindex="-1">Клавиши</button>
+      <button id="help-tab-formats" role="tab" aria-selected="false" aria-controls="help-formats" tabindex="-1">Форматы</button>
+      <button id="help-tab-about" role="tab" aria-selected="false" aria-controls="about-section" tabindex="-1">О программе</button>
+    </div>
+    <div class="help-content">
+      <section id="help-files" class="help-panel" role="tabpanel" aria-labelledby="help-tab-files" tabindex="0">
+      <h3>Открыть или создать файл</h3>
+      <p><strong>«+»</strong> открывает файлы, <strong>«Создать»</strong> создаёт новый документ. Можно также перетащить файлы в окно. Каждый откроется в своей вкладке.</p>
+
+      <h3>Сохранить изменения</h3>
+      <p><kbd>Ctrl S</kbd> сохраняет файл. Для нового документа нужно выбрать имя и папку. Точка на вкладке означает, что есть несохранённые изменения. <strong>«Сохранить как…»</strong> записывает файл под другим именем или в другой папке, в кодировке UTF-8.</p>
+      <p>При закрытии изменённого документа можно сохранить правки, отбросить их или отменить закрытие. Новый пустой документ закрывается без вопроса. При необходимости его тоже можно сохранить через <kbd>Ctrl S</kbd>.</p>
+
+      <h3>Восстановить работу после закрытия</h3>
+      <p>При запуске Dokvi возвращает открытые вкладки, место чтения и несохранённый текст из резервной копии. Она записывается отдельно от исходного файла. Чтобы обновить сам файл, нажмите <kbd>Ctrl S</kbd>.</p>
+      <p>При сбое последние секунды ввода могут потеряться. <strong>«Не сохранять»</strong> отбрасывает правки; вкладки, которые вы закрыли сами, не восстанавливаются.</p>
+      </section>
+
+      <section id="help-editor" class="help-panel" role="tabpanel" aria-labelledby="help-tab-editor" tabindex="0" hidden>
+        <h3>Редактировать и читать</h3>
+        <p><kbd>Ctrl E</kbd> переключает чтение и редактор: слева — Markdown, справа — результат. Предпросмотр обновляется при вводе, прокрутка панелей связана. Их ширину можно менять, перетаскивая границу. Двойной щелчок по границе возвращает исходные пропорции.</p>
+        <p>В меню <strong>«⋯»</strong> есть режим <strong>«Только исходник»</strong> и переключение темы. В <strong>Aa</strong> можно выбрать размер шрифта, ширину и положение текста при чтении.</p>
+        <h3>Форматирование текста</h3>
+        <p>Tab добавляет пробелы до следующей позиции с шагом 4. Выделенные строки сдвигаются вместе. Shift+Tab убирает отступ. Чтобы выйти из редактора к кнопкам, нажмите Escape, затем Tab.</p>
+        <p>Для форматирования выделите текст и нажмите кнопку в центре верхней панели. Заголовки и списки применяются к выбранным строкам. Повторное нажатие B, I или S снимает оформление. После вставки ссылки введите адрес в выделенное место. <kbd>Ctrl Z</kbd> отменяет действие.</p>
+        <h3>Язык интерфейса</h3>
+        <p>Выберите язык в «⋯ → Язык / Language». «Как в системе» включает русский для русскоязычной Windows, иначе английский. Ручной выбор сохраняется после перезапуска.</p>
+      </section>
+
+      <section id="help-shortcuts" class="help-panel" role="tabpanel" aria-labelledby="help-tab-shortcuts" tabindex="0" hidden>
+        <h3>Вкладки и сочетания клавиш</h3>
+        <p>Если вкладок много, листайте полосу колёсиком или стрелками. Стрелка вниз открывает список вкладок с поиском по имени и пути.</p>
+        <div class="shortcuts">
+          <span>Новый документ <kbd>Ctrl N</kbd></span><span>Открыть файлы <kbd>Ctrl O</kbd></span>
+          <span>Сохранить <kbd>Ctrl S</kbd></span><span>Сохранить как… <kbd>Ctrl ⇧ S</kbd></span>
+          <span>Чтение / редактор <kbd>Ctrl E</kbd></span><span>Закрыть вкладку <kbd>Ctrl W</kbd></span>
+          <span>Следующая вкладка <kbd>Ctrl Tab</kbd></span><span>Предыдущая вкладка <kbd>Ctrl ⇧ Tab</kbd></span>
+          <span>Вкладка по номеру <kbd>Ctrl 1…8</kbd></span><span>Последняя вкладка <kbd>Ctrl 9</kbd></span>
+          <span>Отменить действие <kbd>Ctrl Z</kbd></span><span>Повторить действие <kbd>Ctrl Y</kbd></span>
+          <span>Найти текст <kbd>Ctrl F</kbd></span><span>Показать разделы <kbd>Ctrl B</kbd></span>
+          <span>Перечитать файл с диска <kbd>Ctrl R</kbd></span><span>Сохранить PDF <kbd>Ctrl P</kbd></span>
+          <span>Открыть справку <kbd>F1</kbd></span><span>Закрыть справку <kbd>Esc</kbd></span>
+        </div>
+      </section>
+
+      <section id="help-formats" class="help-panel" role="tabpanel" aria-labelledby="help-tab-formats" tabindex="0" hidden>
+        <h3>Форматы и отображение</h3>
+        <p>Открываются .md, .markdown, .mdown, .mkd и .txt размером до 20 МБ.</p>
+        <p>Поддерживаются заголовки, выделение текста, ссылки, изображения, списки, цитаты, таблицы, задачи, код, сноски, определения, индексы и emoji. Формулы LaTeX и диаграммы Mermaid работают без интернета. Есть блоки NOTE, TIP, IMPORTANT, WARNING и CAUTION.</p>
+        <p>Enter переносит текст на новую строку в предпросмотре. Пустая строка отделяет абзацы. Дополнительные пустые строки сохраняют расстояние между ними.</p>
+        <p>Другие программы Markdown могут объединять обычные переносы строк. Dokvi показывает их как новые строки, сохраняя исходный текст файла.</p>
+        <p>Изображения из интернета требуют подключения. Локальные картинки загружаются из папки документа и её подпапок; новый документ сначала нужно сохранить в нужную папку.</p>
+        <p>Некоторые расширения Obsidian и MDX могут отображаться обычным текстом. Скрипты, iframe и встроенные стили HTML не выполняются.</p>
+        <p>Если вместо букв видны непонятные символы, проверьте <strong>«⋯ → Кодировка»</strong>. Чтобы открывать .md двойным щелчком, выберите Dokvi через <strong>«⋯ → Приложение по умолчанию…»</strong>.</p>
+        <button id="show-sample" class="primary">Открыть пример форматирования</button>
+      </section>
+      <section id="about-section" class="help-panel" role="tabpanel" aria-labelledby="help-tab-about" tabindex="0" hidden>
+        <div class="about-brand">
+          <span class="about-icon" aria-hidden="true"><img src="icon.svg" width="48" height="48" alt="" draggable="false"><img class="about-icon-dark" src="icon-dark.svg" width="48" height="48" alt="" draggable="false"></span>
+          <div><h3>Dokvi</h3><p class="muted"><span>Версия</span> <span id="app-version"></span></p></div>
+        </div>
+        <p>Чтение и редактирование Markdown.</p>
+        <p><span>Автор:</span> <a id="author-link" href="https://github.com/TrooSlash">TrooSlash</a> <span class="muted">· GitHub</span></p>
+        <p><a id="support-author" href="https://tips.tips/000491268">Поддержать автора</a></p>
+        <h3>Лицензия MIT</h3>
+        <p>Лицензия MIT разрешает бесплатно использовать, изменять и распространять Dokvi, в том числе продавать копии и включать код в другие программы.</p>
+        <p>В копиях и существенных частях программы нужно сохранять уведомление об авторских правах и текст лицензии. Программа предоставляется «как есть», без гарантий; ответственность автора ограничена условиями MIT.</p>
+        <p>Copyright © 2026 TrooSlash. Сторонние библиотеки распространяются по собственным лицензиям.</p>
+        <details class="license-original"><summary>Полный текст MIT на английском</summary><pre id="license-text"></pre></details>
+      </section>
+    </div>
+  </dialog>
+  <script type="module" src="assets/renderer.js"></script>
+</body>
+</html>

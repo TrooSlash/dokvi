@@ -1,0 +1,1 @@
+function o(e,t,a=!1){return t.sanitize(e,{USE_PROFILES:{html:!0},ADD_TAGS:["eq","eqn","section"],FORBID_TAGS:["style","form","textarea","select","iframe","object","embed","script","svg","math","video","audio","source","link","meta","base"],FORBID_ATTR:["style","srcset","autofocus","contenteditable","formaction"],ALLOW_DATA_ATTR:!0,RETURN_DOM_FRAGMENT:a})}export{o as a};

@@ -1,0 +1,32 @@
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const pos = start => ({ start, end: start, top: 25 });
+test('delta history restores replacements, caret, grouped typing/backspace and redo branches', async () => {
+  const { TextHistory } = await import('../src/history.mjs');
+  const history = new TextHistory('abc');
+  history.record('abcX', pos(3), pos(4));
+  history.record('abcXY', pos(4), pos(5), true);
+  assert.equal(history.past.length, 1);
+  assert.deepEqual(history.step(), { value: 'abc', ...pos(3) });
+  assert.deepEqual(history.step(true), { value: 'abcXY', ...pos(5) });
+  history.record('abcX', pos(5), pos(4));
+  history.record('abc', pos(4), pos(3), true);
+  assert.equal(history.step().value, 'abcXY');
+  history.record('a🙂cXY', { start: 1, end: 2, top: 15 }, pos(3));
+  assert.equal(history.future.length, 0);
+  assert.equal(history.step().value, 'abcXY');
+  assert.equal(history.step(true).value, 'a🙂cXY');
+});
+test('many small changes in a 2 MB document retain only changes and honor the undo limit', async () => {
+  const { TextHistory } = await import('../src/history.mjs');
+  const original = 'x'.repeat(2 * 1024 * 1024);
+  const history = new TextHistory(original);
+  for (let i = 0; i < 150; i++) history.record(history.value + '!', pos(history.value.length), pos(history.value.length + 1));
+  assert.equal(history.past.length, 100);
+  assert.equal(history.bytes, 200);
+  for (let i = 0; i < 100; i++) assert.ok(history.step());
+  assert.equal(history.step(), null);
+  assert.equal(history.value, original + '!'.repeat(50));
+  for (let i = 0; i < 100; i++) assert.ok(history.step(true));
+  assert.equal(history.value, original + '!'.repeat(150));
+});

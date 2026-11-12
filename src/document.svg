@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 48 48"><title>Dokvi — Плашка MD</title><defs><g id="df-md" fill-rule="evenodd"><path d="M0 12V0H3L6 5L9 0H12V12H9V5L6 10L3 5V12ZM15 0H20C24 0 26 2 26 6S24 12 20 12H15ZM18 3V9H20C22 9 23 8 23 6S22 3 20 3Z"/></g></defs>
+        <path d="M14 3H32L43 14V45H14Z" fill="#fcfcfa" stroke="#aeb1ac" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M32 3V14H43" fill="none" stroke="#aeb1ac" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M20 19H36" stroke="#92968f" stroke-width="2"/>
+        <path d="M3 24H37V43H3Z" fill="#242322"/>
+        <path d="M3 24H6V43H3Z" fill="#d7412b"/>
+        <use href="#df-md" transform="translate(8 28) scale(.96)" fill="#fcfcfa"/>
+      </svg>

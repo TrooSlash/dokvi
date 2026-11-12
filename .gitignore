@@ -1,0 +1,11 @@
+node_modules/
+tools/
+dist/
+build-native/
+build-source/
+benchmark/
+build-meta.json
+quality/baseline/
+quality/logs/
+quality/external/
+quality/comment-code-before.json
