@@ -1,5 +1,9 @@
-﻿$ErrorActionPreference = 'Stop'
-$project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+﻿param([string]$ProjectDirectory = (Split-Path -Parent $PSScriptRoot))
+$ErrorActionPreference = 'Stop'
+$project = [IO.Path]::GetFullPath($ProjectDirectory)
+if (-not (Test-Path -LiteralPath (Join-Path $project 'installer\build.ps1'))) {
+  throw 'Installer prototype is not included. Pass -ProjectDirectory pointing to a complete local project with installer sources.'
+}
 $version = (Get-Content -LiteralPath (Join-Path $project 'package.json') -Raw | ConvertFrom-Json).version
 $testRoot = Join-Path $project ('dist\test-data\installer-' + [DateTime]::UtcNow.Ticks)
 $installDirectory = Join-Path $testRoot 'Проверка установки Dokvi'

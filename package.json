@@ -11,8 +11,6 @@
   "scripts": {
     "build": "node build.mjs && powershell -NoProfile -ExecutionPolicy Bypass -File host/build.ps1",
     "build:ui": "node build.mjs",
-    "build:installer": "powershell -NoProfile -ExecutionPolicy Bypass -File installer/build.ps1",
-    "test:installer": "powershell -NoProfile -ExecutionPolicy Bypass -File test/installer.ps1",
     "test": "powershell -NoProfile -ExecutionPolicy Bypass -File test/run.ps1",
     "test:unit": "node --test test/markdown.test.cjs test/history.test.cjs test/formatting.test.cjs test/i18n.test.cjs test/native-shortcuts.test.cjs",
     "test:memory": "powershell -NoProfile -ExecutionPolicy Bypass -File test/measure.ps1",

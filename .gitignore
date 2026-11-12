@@ -9,3 +9,10 @@ quality/baseline/
 quality/logs/
 quality/external/
 quality/comment-code-before.json
+
+/installer/
+/docs/website.md
+/docs/discovery.md
+/docs/launch-posts.md
+/docs/releasing.md
+/docs/release-checks-*.md
