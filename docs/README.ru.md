@@ -6,7 +6,7 @@ Dokvi — бесплатная программа с открытым исход
 
 **3.0.0 · Windows x64 · Русский / English · MIT**
 
-[Скачать для Windows](https://github.com/TrooSlash/Dokvi/releases) · [Руководство](../README.txt) · [Изменения](../CHANGELOG.md) · [Сообщить об ошибке](https://github.com/TrooSlash/Dokvi/issues)
+[Скачать для Windows](https://github.com/TrooSlash/Dokvi/releases) · [Сайт](https://trooslash.github.io/dokvi/ru/) · [Руководство](../README.txt) · [Изменения](../CHANGELOG.md) · [Сообщить об ошибке](https://github.com/TrooSlash/Dokvi/issues)
 
 ![Редактор Dokvi: исходник Markdown слева, результат справа, панель форматирования сверху](images/editor.png)
 

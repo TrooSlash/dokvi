@@ -6,7 +6,7 @@ Dokvi is a free, open-source app for reading and editing `.md` files on Windows.
 
 **3.0.0 · Windows x64 · English / Russian · MIT**
 
-[Download for Windows](https://github.com/TrooSlash/Dokvi/releases) · [User guide (RU)](README.txt) · [Changelog (RU)](CHANGELOG.md) · [Report a bug](https://github.com/TrooSlash/Dokvi/issues)
+[Download for Windows](https://github.com/TrooSlash/Dokvi/releases) · [Website](https://trooslash.github.io/dokvi/) · [User guide (RU)](README.txt) · [Changelog (RU)](CHANGELOG.md) · [Report a bug](https://github.com/TrooSlash/Dokvi/issues)
 
 ![Dokvi Markdown editor with source on the left, live preview on the right, and formatting controls above](docs/images/editor.png)
 
