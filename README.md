@@ -2,7 +2,7 @@
 
 <a id="dokvi-markdown-reader-and-editor-for-windows"></a>
 
-# <img src="src/icon.svg#gh-light-mode-only" alt="" width="36" height="36"> <img src="src/icon-dark.svg#gh-dark-mode-only" alt="" width="36" height="36"> Dokvi
+# Dokvi
 
 **Markdown reader and editor for Windows**
 
