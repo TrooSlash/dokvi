@@ -1,27 +1,50 @@
-# Dokvi: Markdown reader and editor for Windows
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="src/icon-dark.svg">
+  <img src="src/icon.svg" alt="" width="56" height="56">
+</picture>
+
+<a id="dokvi-markdown-reader-and-editor-for-windows"></a>
+
+# Dokvi
+
+**Markdown reader and editor for Windows**
 
 **English** · [Русский](docs/README.ru.md)
 
-Dokvi is a free, open-source app for reading and editing `.md` files on Windows. Open a README, notes, or documentation with formatting, then edit the Markdown source beside a live preview.
+Read `.md` files, edit beside a live preview, and export to PDF.
 
-**3.0.0 · Windows x64 · English / Russian · MIT**
+3.0.0 · Windows x64 · English / Russian · MIT
 
-[Download for Windows](https://github.com/TrooSlash/Dokvi/releases) · [Website](https://trooslash.github.io/dokvi/) · [User guide (RU)](README.txt) · [Changelog (RU)](CHANGELOG.md) · [Report a bug](https://github.com/TrooSlash/Dokvi/issues)
+**[Download Dokvi 3.0.0 for Windows](https://github.com/TrooSlash/dokvi/releases/download/v3.0.0/Dokvi-3.0.0.exe)**
+
+EXE · 3.4 MiB · Free and open source
+
+[System requirements](#open-markdown-files-on-windows) · [Release files](https://github.com/TrooSlash/dokvi/releases/tag/v3.0.0) · [Website](https://trooslash.github.io/dokvi/)
+
+</div>
 
 ![Dokvi Markdown editor with source on the left, live preview on the right, and formatting controls above](docs/images/editor.png)
 
-Source and preview scroll together. Drag the divider to resize the panes. The screenshot shows the Russian interface; English is also available. [View reading mode](docs/images/reading.png).
+Source and preview scroll together; drag the divider to resize the panes. The screenshot shows the Russian interface. [View reading mode](docs/images/reading.png).
 
 ## Open Markdown files on Windows
 
-Requirements: **Windows 10 version 2004 or later / Windows 11, x64**, [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48), and [Microsoft Edge WebView2 Evergreen Runtime](https://developer.microsoft.com/microsoft-edge/webview2/). The runtimes are separate from the EXE. Node.js is not needed to use Dokvi. The 3.0.0 EXE is about **3.4 MiB**, excluding these system components.
+You need:
 
-1. Download **Dokvi-3.0.0.exe** from [Releases](https://github.com/TrooSlash/Dokvi/releases). The *Source code* archives contain the project, not a ready-to-run app.
+- **Windows 10 version 2004 or later, or Windows 11 (x64).**
+- [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48).
+- [Microsoft Edge WebView2 Evergreen Runtime](https://developer.microsoft.com/microsoft-edge/webview2/).
+
+The runtimes are separate from the EXE and are not included in its 3.4 MiB size. Node.js is only needed to build from source.
+
+1. Download [**Dokvi-3.0.0.exe**](https://github.com/TrooSlash/dokvi/releases/download/v3.0.0/Dokvi-3.0.0.exe). The *Source code* archives on the release page contain the project, not a ready-to-run app.
 2. Keep the EXE in a permanent folder and run it. Dokvi itself does not need installation.
 3. Click **+** to open files, drag them into the window, or click **New** to create a document.
 4. Press **Ctrl+S** to save. For a new file, choose its name and folder.
 
-Open the built-in example to try the supported formatting, or press **F1** for help. This release has no publisher signature or installer.
+Open the built-in example to try the supported formatting, or press **F1** for help. This release has no publisher signature or installer. [User guide (RU)](README.txt) · [Changelog (RU)](CHANGELOG.md).
 
 ## Features
 
@@ -29,7 +52,7 @@ Open the built-in example to try the supported formatting, or press **F1** for h
 - **Editing.** Source-only or split view, formatting buttons for selected text, undo and redo, and indentation with Tab and Shift+Tab.
 - **Tabs.** Multiple documents, a scrolling tab strip, and a tab list with search by name or path.
 - **Markdown.** Tables, task lists, footnotes, blockquotes, syntax highlighting, LaTeX math, and Mermaid diagrams.
-- **PDF export.** Export the current text, including unsaved edits. Wide tables use landscape pages; images and diagrams scale to fit. [Export guide](docs/markdown-to-pdf.md).
+- **PDF export.** Export the current text, including unsaved edits, tables, code, math, diagrams, and images. [Export guide](docs/markdown-to-pdf.md).
 - **Appearance.** Light and dark themes, with English and Russian interfaces. Use the Windows language or choose one manually.
 - **Recovery.** Open tabs and unsaved drafts return after a restart from local recovery copies.
 
@@ -67,13 +90,13 @@ In the editor, **Tab** indents and **Shift+Tab** outdents. To move from the text
 
 ## Formats and limits
 
-Dokvi opens `.md`, `.markdown`, `.mdown`, `.mkd`, and `.txt` files up to **20 MB**. Supported encodings are UTF-8, UTF-16 LE/BE, and Windows-1251. If automatic detection chooses the wrong encoding, select it in **⋯**.
+Dokvi opens `.md`, `.markdown`, `.mdown`, `.mkd`, and `.txt` files up to **20 MiB**. Supported encodings are UTF-8, UTF-16 LE/BE, and Windows-1251. If automatic detection chooses the wrong encoding, select it in **⋯**.
 
 A single Enter appears as a line break; additional blank lines are preserved. Other Markdown apps may render these breaks differently. Obsidian and MDX extensions may remain plain text. HTML is sanitized to remove scripts, iframes, and inline styles.
 
 Math and diagrams work offline. Remote images need an internet connection. Local images can be loaded from the document's folder and its subfolders; save a new document into the intended folder first.
 
-Large documents need more memory and may take longer to update. Very wide diagrams and matrices shrink during PDF export; zooming may be needed to read the details.
+Large documents need more memory and may take longer to update. A document containing a table with **9 or more columns** exports to an entirely landscape PDF. Very wide diagrams and matrices shrink during export; zooming may be needed to read the details.
 
 ## Build from source
 

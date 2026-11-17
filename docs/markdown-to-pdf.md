@@ -9,7 +9,7 @@ Dokvi exports the current Markdown document, including unsaved edits, to PDF. Ta
 3. Press **Ctrl+P**, or choose the PDF command in **⋯**.
 4. Choose a name and folder for the PDF, then open it to check page breaks and small details.
 
-Wide tables use landscape pages and keep the column alignment from Markdown. Long code lines wrap for printing. Images, diagrams, and large formulas scale to fit the printable area. A large diagram can therefore need zooming to read comfortably; consider splitting it into smaller diagrams in the source.
+PDF pages use A4. If any table has **9 or more columns**, the entire document uses landscape orientation. Tables keep the column alignment from Markdown. Long code lines wrap for printing. Images, diagrams, and large formulas scale to fit the printable area. A large diagram can therefore need zooming to read comfortably; consider splitting it into smaller diagrams in the source.
 
 Math and Mermaid rendering work offline. Remote images need an internet connection. Local images must be in the document's folder or its subfolders; save a new document there before using relative image paths.
 
@@ -26,7 +26,7 @@ Dokvi сохраняет в PDF текущий текст, включая нес
 3. Нажмите **Ctrl+P** или выберите **«Сохранить PDF…»** в меню **«⋯»**.
 4. Укажите имя и папку PDF, затем откройте результат и проверьте разрывы страниц и мелкие детали.
 
-Широкие таблицы получают альбомные страницы и сохраняют выравнивание столбцов. Длинные строки кода переносятся для печати. Картинки, схемы и большие формулы уменьшаются до области печати. Сложная диаграмма может потребовать увеличения при чтении PDF; иногда удобнее разбить её на несколько схем в исходнике.
+PDF использует формат A4. Если хотя бы одна таблица содержит **9 и более столбцов**, весь документ получает альбомную ориентацию. Таблицы сохраняют выравнивание столбцов. Длинные строки кода переносятся для печати. Картинки, схемы и большие формулы уменьшаются до области печати. Сложная диаграмма может потребовать увеличения при чтении PDF; иногда удобнее разбить её на несколько схем в исходнике.
 
 Формулы и Mermaid работают без интернета. Удалённым изображениям нужно подключение. Локальные картинки должны находиться в папке документа или её подпапках; новый документ сначала сохраните в нужную папку.
 
