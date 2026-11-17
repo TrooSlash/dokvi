@@ -1,13 +1,8 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="src/icon-dark.svg">
-  <img src="src/icon.svg" alt="" width="56" height="56">
-</picture>
-
 <a id="dokvi-markdown-reader-and-editor-for-windows"></a>
 
-# Dokvi
+# <img src="src/icon.svg#gh-light-mode-only" alt="" width="36" height="36"> <img src="src/icon-dark.svg#gh-dark-mode-only" alt="" width="36" height="36"> Dokvi
 
 **Markdown reader and editor for Windows**
 
@@ -15,11 +10,8 @@
 
 Read `.md` files, edit beside a live preview, and export to PDF.
 
-3.0.0 · Windows x64 · English / Russian · MIT
-
-**[Download Dokvi 3.0.0 for Windows](https://github.com/TrooSlash/dokvi/releases/download/v3.0.0/Dokvi-3.0.0.exe)**
-
-EXE · 3.4 MiB · Free and open source
+**[Download Dokvi 3.0.0 for Windows](https://github.com/TrooSlash/dokvi/releases/download/v3.0.0/Dokvi-3.0.0.exe)**<br>
+Free and open source · Windows x64 · 3.4 MiB EXE · MIT
 
 [System requirements](#open-markdown-files-on-windows) · [Release files](https://github.com/TrooSlash/dokvi/releases/tag/v3.0.0) · [Website](https://trooslash.github.io/dokvi/)
 

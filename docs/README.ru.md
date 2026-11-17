@@ -1,13 +1,8 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../src/icon-dark.svg">
-  <img src="../src/icon.svg" alt="" width="56" height="56">
-</picture>
-
 <a id="dokvi-читалка-и-редактор-markdown-для-windows"></a>
 
-# Dokvi
+# <img src="../src/icon.svg#gh-light-mode-only" alt="" width="36" height="36"> <img src="../src/icon-dark.svg#gh-dark-mode-only" alt="" width="36" height="36"> Dokvi
 
 **Читалка и редактор Markdown для Windows**
 
@@ -15,11 +10,8 @@
 
 Читайте `.md`, редактируйте текст рядом с предпросмотром и сохраняйте результат в PDF.
 
-3.0.0 · Windows x64 · Русский / English · MIT
-
-**[Скачать Dokvi 3.0.0 для Windows](https://github.com/TrooSlash/dokvi/releases/download/v3.0.0/Dokvi-3.0.0.exe)**
-
-EXE · 3,4 МиБ · Бесплатно, с открытым исходным кодом
+**[Скачать Dokvi 3.0.0 для Windows](https://github.com/TrooSlash/dokvi/releases/download/v3.0.0/Dokvi-3.0.0.exe)**<br>
+Бесплатно, с открытым исходным кодом · Windows x64 · EXE 3,4 МиБ · MIT
 
 [Системные требования](#как-открыть-markdown-файл-в-windows) · [Файлы выпуска](https://github.com/TrooSlash/dokvi/releases/tag/v3.0.0) · [Сайт](https://trooslash.github.io/dokvi/ru/)
 
